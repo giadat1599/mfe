@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -56,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header({ isSignedIn, onSignOut }) {
   const classes = useStyles();
-  const history = useHistory()
 
   const onClick = () => {
     if (isSignedIn && onSignOut) {
@@ -64,10 +63,7 @@ export default function Header({ isSignedIn, onSignOut }) {
     }
   };
 
-  useEffect(() => {
-    if(isSignedIn) history.push('/')
-  }, [isSignedIn])
-
+  
   return (
     <React.Fragment>
       <AppBar
